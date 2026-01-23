@@ -6,8 +6,8 @@ module.exports = {
         jest: true,
     },
     extends: [
-        'plugin:react/recommended', 
-        'airbnb', 
+        'plugin:react/recommended',
+        'airbnb',
         'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
@@ -58,6 +58,6 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off',
             },
-        }
-    ]
+        },
+    ],
 };
