@@ -1,4 +1,3 @@
-import './styles/index.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Navbar } from 'widgets/Navbar';
@@ -6,7 +5,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { AppRouter } from 'app/providers/router';
 import { Suspense } from 'react';
 
-const App = () => {
+function App() {
     const { theme } = useTheme();
 
     return (
@@ -20,6 +19,6 @@ const App = () => {
             </Suspense>
         </div>
     );
-};
+}
 
 export default App;
