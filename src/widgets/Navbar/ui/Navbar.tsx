@@ -1,21 +1,40 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { useTranslation } from 'react-i18next';
+import { useCallback, useState } from 'react';
+import { Modal } from 'shared/ui/Modal/Modal';
 import cls from './Navbar.module.scss';
+import { LoginModal } from 'features/AuthByUsername';
 
 interface NavbarProps {
-    className?: string
+    className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => (
-    <div className={classNames(cls.Navbar, {}, [className])}>
-        <div className={cls.links}>
-            <AppLink theme={AppLinkTheme.SECONDARY} to="/" className={cls.mainLink}>
-                Главная
-            </AppLink>
-            <AppLink theme={AppLinkTheme.RED} to="/about">
-                О сайте
-            </AppLink>
-        </div>
+export const Navbar = ({ className }: NavbarProps) => {
+    const { t } = useTranslation();
+    const [isAuthModal, setIsAuthModal] = useState(false);
 
-    </div>
-);
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
+
+    return (
+        <div className={classNames(cls.Navbar, {}, [className])}>
+            <Button
+                theme={ButtonTheme.CLEAR_INVERTED}
+                className={cls.links}
+                onClick={onShowModal}
+            >
+                {t('Войти')}
+            </Button>
+            <LoginModal
+                isOpen={isAuthModal}
+                onClose={onCloseModal}
+             />
+        </div>
+    );
+};
