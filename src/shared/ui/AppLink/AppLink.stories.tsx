@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AppLink, AppLinkTheme } from './AppLink';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { AppLink, AppLinkTheme } from './AppLink';
 
 export default {
     title: 'widget/AppLink',
@@ -55,4 +55,3 @@ RedDark.args = {
     theme: AppLinkTheme.RED,
 };
 RedDark.decorators = [ThemeDecorator(Theme.DARK)];
-

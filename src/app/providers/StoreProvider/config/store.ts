@@ -1,9 +1,9 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { useDispatch } from 'react-redux';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
-import { useDispatch } from 'react-redux';
 
 export function createReduxStore(
     initialState?: StateSchema,
